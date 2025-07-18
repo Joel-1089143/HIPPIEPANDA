@@ -319,12 +319,17 @@ export default function WelcomeScreen() {
                   colors={benefits[currentBenefitIndex].bgGradient}
                   style={styles.benefitCard}
                 >
+                  {(() => {
+                    const IconComponent = benefits[currentBenefitIndex].icon;
+                    return (
                   <LinearGradient
                     colors={benefits[currentBenefitIndex].gradient}
                     style={styles.benefitIcon}
                   >
-                    <benefits[currentBenefitIndex].icon size={28} color="#ffffff" />
+                    <IconComponent size={28} color="#ffffff" />
                   </LinearGradient>
+                    );
+                  })()}
                   <Text style={styles.benefitTitle}>{benefits[currentBenefitIndex].title}</Text>
                   <Text style={styles.benefitDescription}>
                     {benefits[currentBenefitIndex].description}
